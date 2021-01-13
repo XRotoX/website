@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:description" content="The first web project.">
+  <title>Inpt project</title>
+  <link rel="icon" href="png/webicon.ico">
+  <link rel='stylesheet'    href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'>
+  <link rel="stylesheet" href="./css/style-consultation.css">
+    <link rel='stylesheet'    href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/flatly/bootstrap.min.css">
+
+    <link href="css/main.css" rel="stylesheet" media="all">
+    
+    <link rel='stylesheet'    href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <script>
+            function closeparticipate() {
+                $(".participate").hide();
+            }
+            function openparticipate(){
+                $(".participate").show();
+                $('.book').append('<h2 class="title">Join a match</h2>');
+            }
+            function closebook() {
+                $(".book").hide();
+            }
+            function openbook(){
+                let searchParams = new URLSearchParams(window.location.search)
+                selected = searchParams.get('selected');
+                datetime = searchParams.get('datetime');
+                
+                
+                
+                $(".book").show();
+                var str = '<div class="row row-space"><div class="col-sm-6"><div class="input-group"><input class="input--style-2" type="text" value={{selected}} name="selected" readonly></div></div><div class="col-sm-6"><div class="input-group"><input class="input--style-2" type="text" value={{datetime}} name="datetime" readonly></div></div></div>'
+                
+                var res = str.replace("{{selected}}", selected);
+                var res = res.replace("{{datetime}}", datetime);
+                $('.afterthis').append(res);
+                
+
+            }
+        </script>
+        
+     <div class="participate wrapper page-wrapper p-t-180 p-b-100 font-robo" style="z-index: 2;left: 50%;transform: translate(-50%,0%); display: none;">
+        <div class="wrapper wrapper--w960 font-robo">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body" style="position: relative;">
+                    <div class="closebtn" onclick="closeparticipate()" style="position: absolute; top: 20px; right: 20px;">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    
+                    <h2 class="jointitle">Join a match</h2>
+                    
+                    <form method="POST" action="participate.php">
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Name" name="name">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Phone number" name="Phone">
+                        </div>
+                        
+
+                        <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <div class="book wrapper page-wrapper p-t-180 p-b-100 font-robo" style="z-index: 2;position: absolute;left: 50%;transform: translate(-50%,0%); display: none;">
+        <div class="wrapper wrapper--w960 font-robo">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body" style="position: relative;">
+                    <div class="closebtn" onclick="closebook()" style="position: absolute; top: 20px; right: 20px;">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    
+                    <h2 class="booktitle title">Registration info</h2>
+                    
+                    <form method="POST" action="book.php">
+                        
+                        
+                        <div class="row row-space">
+                            
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Name" name="name">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Title" name="title">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Number of players" name="plcount">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Players needed (0 if not)" name="plneeded">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Phone number" name="phone">
+                        </div>
+                        <div class="afterthis">
+                            
+                        </div>
+                        
+                              <div class="form-check-inline">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio" value="1H">1H
+                              </label>
+                            </div>
+                            <div class="form-check-inline">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio" value="1H30Min">1H30Min
+                              </label>
+                            </div>
+                            <div class="form-check-inline disabled">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio" value="2H">2H
+                              </label>
+                            </div> 
+                        
+                        
+                        
+                        <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+        <div class="showcase">
+            <div class="showcase-left">
+                <?php include 'request.php';?>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <div class="ccontainer" style="text-align: center;">
+<div class="reservationcard" style="text-align: center;display: inline-block; height: 200px; width: 600px; border-radius: 20px; background: white;margin: 20px; box-shadow: 1px 0px 20px -8px rgba(0,0,0,0.75); position: relative;">
+<div class="container">
+<div class="row">
+<div class="col-sm-3" style="background-color: #2ECC71; color: white; height: 200px; width: 600px; border-radius: 20px 0px 0px 20px;text-align: center;position:relative;">
+<div class="day" style="font-size: 60px;margin:auto;font-weight: 700;position:relative;">{{date}}</div>
+<div class="dayname" style="font-size: 20px;margin:auto;font-weight: 100;">{{dayname}}</div>
+<div class="time" style="margin: 10px auto;font-size: 30px;font-weight: 700;position: relative;">{{time}}</div>
+</div>
+<div class="col-md-9" style="position:relative;color: #666;text-align: left;" >
+
+<div class="title" style="color: black;font-size: 30px;font-weight:900;margin-top: 10px;"><i class="fas fa-futbol"></i> {{title}}</div>
+<div class="name" style="font-size: 15px;margin:auto;font-weight: 100;position:relative;"><i class="far fa-clock"></i> Booked by {{name}}</div>
+<div class="since" style="font-size: 15px;margin:auto;font-weight: 100;position:absolute;top: 25px;right: 20px;">{{since}}</div>
+<div class="duration" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-hourglass-start"></i> {{duration}} minutes</div>
+<div class="players" style="font-size: 20px;margin:auto;font-weight: 100;"><i class="fas fa-male"></i> {{players}}</div>
+<div class="participatebtn"  onclick="openparticipate()" style="font-size: 20px;margin:auto;font-weight: 100;position:absolute;right: 20px;bottom: 20px;"><button type="button" {{disabled}} onclick="openpar()" class="btn btn-info">Participate</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+                
+            </div>
+     
+                        
+
+            <div class="showcase-right">
+                <img src="png/consultation.png" style="float:right">
+                
+            </div>
+        </div>
+    </header>
+</body>
+</html>

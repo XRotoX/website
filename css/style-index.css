@@ -1,0 +1,340 @@
+
+
+body{
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    color: #999;
+}
+
+
+
+
+
+
+.showcase{
+    width: 100%;
+    height: 850px;
+    padding-top: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    position: relative;
+    background: -webkit-radial-gradient(rgb(57, 146, 234), rgb(4, 53, 107));
+    background: radial-gradient(rgb(57, 146, 234), rgb(4, 53, 107));
+
+
+}
+
+
+.showcase-top{
+    position: relative;
+    height: 90px;
+    z-index: 2;
+}
+
+.showcase-top a{
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-right: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+.showcase-top a:hover{
+    opacity: 0.9;
+}
+
+.home{
+    display: inline-block;
+    float: left;
+}
+
+
+.home a{
+    font-weight: bold;
+}
+
+.subdivisions{
+    display: inline-block;
+    align-content: flex-end;
+    float: right;
+}
+
+
+
+.circle {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    background-color: transparent;
+    border:35px solid #e86332;    
+    height:25rem;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+    width:25rem;
+    
+}
+
+
+
+.showcase p{
+    position: absolute;
+    margin: auto;
+    vertical-align: middle;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    display: flex;
+    text-transform: uppercase;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 12rem;
+    
+
+}
+
+#carouselExampleCaptions{
+    position: absolute;
+    margin: auto;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.about-us{
+    
+    background-image: url(/png/checck.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+}
+.row{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+.column {
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 50px;
+    float: left;
+    width: 50%;
+}
+
+.column h3{
+    margin: 10px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: black;
+}
+ 
+.booking-card{
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    height: 500px;
+    width: 400px;
+    background-color: #0b60dd;
+    box-shadow: 1px 0px 55px -8px rgba(0,0,0,0.75);
+
+}
+
+.booking-card h2{
+    margin: 40px;
+    font-weight: 100;
+    color: white;
+}
+
+.booking-card h4{
+    margin: 40px;
+    color: white;
+}
+
+.left{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    vertical-align: middle;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.presentation{
+    position: relative;
+    height: 500px;
+    
+}
+
+
+.parallax{
+    position: relative;
+    background-image: url(/png/sporty-background.png);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cover{
+    position: relative;
+    background-color: black;
+    opacity: .3;
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax h3{
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    font-family: cursive;
+}
+
+.sports{
+    width: 100%;
+    height: 80vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/png/sportsbg.png);
+    background-position: center;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    
+}
+
+
+.scrolling-wrapper {
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    height: auto;
+    &::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+
+}
+
+.sports-title h3{
+    font-size: 2rem;
+    color: black;
+    font-family: cursive;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.card{
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin-right: 3rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+  }
+
+.card img{
+    display: inline-block;
+    height: 100%;
+    width: auto;
+}
+
+.card:hover{
+    cursor: pointer;
+    opacity: .9;
+}
+
+#basketball{
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    background: royalblue;
+}
+
+#volleyball{
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    background: #eba435;
+}
+
+#football{
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    background: #e86332;
+}
+
+
+#tenis{
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    background: #7dd235;
+}
+
+
+.btn:hover{
+    opacity: 0.9;
+}
+
+
+
+
+@media(max-width:960px) {
+    
+    
+}
